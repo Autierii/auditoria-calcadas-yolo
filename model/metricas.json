@@ -1,0 +1,82 @@
+{
+ "val": [
+  {
+   "classe": "buraco",
+   "precision": 0.419,
+   "recall": 0.25,
+   "mAP50": 0.259,
+   "mAP50-95": 0.128
+  },
+  {
+   "classe": "lixo",
+   "precision": 0.498,
+   "recall": 0.381,
+   "mAP50": 0.301,
+   "mAP50-95": 0.152
+  },
+  {
+   "classe": "piso_tatil",
+   "precision": 0.079,
+   "recall": 0.2,
+   "mAP50": 0.208,
+   "mAP50-95": 0.144
+  },
+  {
+   "classe": "poste",
+   "precision": 0.538,
+   "recall": 0.562,
+   "mAP50": 0.442,
+   "mAP50-95": 0.274
+  },
+  {
+   "classe": "TODAS",
+   "precision": 0.383,
+   "recall": 0.348,
+   "mAP50": 0.302,
+   "mAP50-95": 0.175
+  }
+ ],
+ "test": [
+  {
+   "classe": "buraco",
+   "precision": 1.0,
+   "recall": 0.0,
+   "mAP50": 0.0,
+   "mAP50-95": 0.0
+  },
+  {
+   "classe": "lixo",
+   "precision": 0.596,
+   "recall": 0.286,
+   "mAP50": 0.225,
+   "mAP50-95": 0.149
+  },
+  {
+   "classe": "piso_tatil",
+   "precision": 0.205,
+   "recall": 0.25,
+   "mAP50": 0.187,
+   "mAP50-95": 0.102
+  },
+  {
+   "classe": "poste",
+   "precision": 0.615,
+   "recall": 0.6,
+   "mAP50": 0.67,
+   "mAP50-95": 0.387
+  },
+  {
+   "classe": "TODAS",
+   "precision": 0.604,
+   "recall": 0.284,
+   "mAP50": 0.27,
+   "mAP50-95": 0.16
+  }
+ ],
+ "split": {
+  "train": 116,
+  "val": 34,
+  "test": 17
+ },
+ "imgsz": 448
+}

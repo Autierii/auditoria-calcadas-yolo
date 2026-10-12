@@ -1,0 +1,12 @@
+{
+ "imgsz": 448,
+ "names": [
+  "buraco",
+  "lixo",
+  "piso_tatil",
+  "poste"
+ ],
+ "modelo": "YOLOv8n",
+ "treino": "CPZÃO Auditoria de Calçadas",
+ "versao": "3f56b06b"
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <title>Auditoria de Calçadas · YOLO</title>
+   <link rel="manifest" href="./manifest.json">
+   <meta name="theme-color" content="#0a0a0a">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <meta name="apple-mobile-web-app-title" content="Calçadas">
+   <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+   <link rel="icon" href="./icons/icon-192.png" sizes="192x192" type="image/png">
+   <link rel="apple-touch-icon" href="./icons/icon-192.png">
+   <link rel="stylesheet" href="./src/style.css">
+   <script>document.documentElement.dataset.theme=localStorage.getItem('yoloinfer-theme')||'dark'</script>
+</head>
+<body>
+   <div id="app">
+     <header>
+       <h1>Auditoria de Calçadas</h1>
+       <p class="subtitle">YOLOv8n · buraco · lixo · piso tátil · poste</p>
+     </header>
+     <main>
+       <div id="viewport">
+         <video id="video" autoplay muted playsinline hidden></video>
+         <img id="static-img" alt="" hidden>
+         <canvas id="overlay"></canvas>
+         <div id="placeholder">
+           <span class="ph-icon">&#8853;</span>
+           <span>Abra a câmera ou envie uma foto</span>
+         </div>
+         <div id="fps-badge" hidden>0 FPS</div>
+         <div id="model-badge" hidden>Detection</div>
+         <div id="loader" hidden>
+           <div class="spinner"></div>
+           <p id="loader-msg">Carregando modelo...</p>
+         </div>
+          <div id="error-screen" hidden>
+            <p id="error-msg"></p>
+            <p class="error-hint">Toque em "Modelo" e selecione um arquivo .onnx</p>
+            <button onclick="location.reload()">Tentar de novo</button>
+          </div>
+       </div>
+       <div id="stats" aria-live="polite"></div>
+       <div id="controls">
+         <div id="controls-header">
+           <select id="model-select" class="ctrl-select">
+             <option value="calcadas">Calçadas (YOLOv8n treinado)</option>
+             <option value="coco">COCO (yolov8n original, 80 classes)</option>
+             <option value="custom" disabled>Modelo carregado do aparelho</option>
+           </select>
+           <button id="btn-theme" type="button" aria-label="Toggle theme">☀</button>
+         </div>
+         <div id="btn-row">
+           <button id="btn-camera" disabled>Carregando...</button>
+           <label id="btn-upload" class="disabled">
+             <span>Foto</span>
+             <input type="file" id="file-input" accept="image/*" hidden>
+           </label>
+            <button id="btn-model" type="button">
+              <span>Modelo</span>
+            </button>
+            <input type="file" id="model-input" accept=".onnx" class="file-pick-hidden">
+           <button id="btn-capture">Reprocessar</button>
+         </div>
+         <div id="thresholds">
+           <div class="ctrl-row" id="bbox-toggle-row" hidden>
+             <span class="ctrl-label">Mostrar caixas</span>
+             <div class="slider-row">
+               <label class="toggle-switch">
+                 <input type="checkbox" id="bbox-toggle" checked>
+                 <span class="toggle-track"></span>
+               </label>
+             </div>
+           </div>
+           <div class="ctrl-row">
+             <span class="ctrl-label">Confiança</span>
+             <div class="slider-row">
+               <input type="range" id="conf-slider" min="0" max="100" value="30">
+               <span id="conf-val" class="ctrl-value">0.30</span>
+             </div>
+           </div>
+           <div class="ctrl-row">
+             <span class="ctrl-label">Limiar IoU</span>
+             <div class="slider-row">
+               <input type="range" id="iou-slider" min="0" max="95" value="45">
+               <span id="iou-val" class="ctrl-value">0.45</span>
+             </div>
+           </div>
+         </div>
+       </div>
+     </main>
+     <footer>CPZÃO Visão Computacional · FIAP 2026 · baseado no yoloinferApp de Marcelo Rovai</footer>
+   </div>
+   <script type="module" src="./src/main.js"></script>
+</body>
+</html>

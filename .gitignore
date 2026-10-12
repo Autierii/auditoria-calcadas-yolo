@@ -1,0 +1,21 @@
+# ambiente / caches
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+.venv/
+
+# gerados pelo pipeline (reproduzíveis a partir de data/raw + data/labels)
+data/dataset/
+runs/
+*.cache
+yolov8n.pt
+yolo11n.pt
+
+# app
+app/node_modules/
+app/dist/
+weights/
+notebooks/weights/
+*.pt
+!model/calcadas_best.pt
